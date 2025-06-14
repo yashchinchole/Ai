@@ -1,0 +1,189 @@
+-----------------------------------------------------------------------------------------------
+
+-- DROP DATABASE yash;
+
+system cls
+
+CREATE DATABASE yash;
+SHOW DATABASES;
+USE yash;
+
+-----------------------------------------------------------------------------------------------
+
+SHOW TABLES;
+
+CREATE TABLE emp (
+    emp_ID INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(20) NOT NULL,
+    dob DATE DEFAULT '2000-01-01',
+    gender CHAR NOT NULL,
+    salary DOUBLE DEFAULT 0,
+    branch_ID VARCHAR(20) NOT NULL
+);
+
+DESCRIBE emp;
+
+INSERT INTO emp (name, dob, gender, salary, branch_ID) VALUES
+    ('Yash', '2003-07-14', 'M', 80000, 'I2'),
+    ('Tony', '2000-04-13', 'M', 90000, 'U1'),
+    ('Nami', '2002-12-24', 'F', 30000, 'J1'),
+    ('Jon', '2003-09-17', 'M', 40000, 'U1'),
+    ('Ben', '2002-02-19', 'M', 45000, 'I1'),
+    ('Arya', '2005-11-22', 'F', 50000, 'U1'),
+    ('Zoro', '2000-01-11', 'M', 55000, 'J1');
+
+INSERT INTO emp (name, gender, branch_ID) VALUES
+    ('Leo', 'M', 'I2');
+
+UPDATE emp
+SET salary = 100000
+WHERE emp_ID = 8;
+
+SELECT * FROM emp;
+
+-----------------------------------------------------------------------------------------------
+
+CREATE TABLE branch (
+    branch_ID VARCHAR(20) PRIMARY KEY,
+    name VARCHAR(20) NOT NULL,
+    country VARCHAR(10) NOT NULL
+);
+
+INSERT INTO branch (branch_ID, name, country) VALUES
+    ('I2', 'Pune', 'India'),
+    ('I1', 'Bangalore', 'India'),
+    ('J1', 'Tokyo', 'Japan'),
+    ('U1', 'San Francisco', 'US');
+
+SELECT * FROM branch;
+
+ALTER TABLE emp
+ADD CONSTRAINT fk_branch_ID
+FOREIGN KEY (branch_ID) REFERENCES branch(branch_ID);
+
+DESCRIBE emp;
+
+ALTER TABLE branch
+MODIFY COLUMN country VARCHAR(20);
+
+DESCRIBE branch;
+
+-----------------------------------------------------------------------------------------------
+
+CREATE TABLE client (
+    client_ID INT PRIMARY KEY,
+    name VARCHAR(20) NOT NULL,
+    branch_ID VARCHAR(20),
+    FOREIGN KEY (branch_ID) REFERENCES branch(branch_ID)
+);
+
+INSERT INTO client (client_ID, name, branch_ID) VALUES
+    (100, 'Joker', 'U1'),
+    (101, 'Eren', 'I2'),
+    (102, 'Madara', 'J1'),
+    (103, 'Kaido', 'J1'),
+    (104, 'Garp', 'U1'),
+    (105, 'Johan', 'I2');
+
+SELECT * FROM client;
+
+-----------------------------------------------------------------------------------------------
+
+CREATE TABLE work (
+    emp_ID INT ,
+    client_ID INT,
+    profit DOUBLE DEFAULT 0,
+    FOREIGN KEY (emp_ID) REFERENCES emp(emp_ID),
+    FOREIGN KEY (client_ID) REFERENCES client(client_ID)
+);
+
+DESCRIBE work;
+
+INSERT INTO work (emp_ID, client_ID, profit) VALUES
+    (1, 100, 15000),
+    (2, 101, 20000),
+    (3, 102, 10000),
+    (4, 103, 12000),
+    (5, 104, 18000),
+    (6, 105, 22000),
+    (7, 100, 25000),
+    (8, 100, 45000);
+
+SELECT * FROM work;
+
+-----------------------------------------------------------------------------------------------
+
+SELECT * FROM emp;
+SELECT * FROM branch;
+SELECT * FROM client;
+SELECT * FROM work;
+
+-- DROP TABLE emp;
+-- DROP TABLE branch;
+-- DROP TABLE client;
+-- DROP TABLE work;
+
+-----------------------------------------------------------------------------------------------
+
+Data Manipulation:
+Q. Insert a new employee with the following details: emp_ID=9, name='Sakura', dob='2004-05-30', gender='F', salary=60000, branch_ID='I1'.
+Q. Update the salary of employee with emp_ID=5 to 48000.
+Q. Delete the employee with emp_ID=6.
+
+-----------------------------------------------------------------------------------------------
+
+Data Definition:
+Q. Create a new table named 'department' with columns: dept_ID (INT), name (VARCHAR), and location (VARCHAR).
+Q. Add a new column 'position' of type VARCHAR to the 'emp' table.
+Q. Drop the 'client' table.
+
+-----------------------------------------------------------------------------------------------
+
+Query Filtering and Sorting:
+Q. Retrieve all employees who have a salary greater than 50000.
+Q. Retrieve employees from branch 'I2' and branch 'U1'.
+Q. Retrieve employees sorted by salary in ascending order.
+Q. Retrieve employees sorted by dob in descending order.
+
+-----------------------------------------------------------------------------------------------
+
+Data Aggregation:
+Q. Calculate the total profit for all employees.
+Q. Find the average salary of employees.
+Q. Count the number of employees in each branch.
+Q. Determine the minimum salary among all employees.
+Q. Identify the maximum profit earned by any employee.
+
+-----------------------------------------------------------------------------------------------
+
+Joins and Relationships:
+Q. Perform an inner join between 'emp' and 'branch' tables on the 'branch_ID' column.
+Q. Retrieve all employees along with their clients (if any) using a left join.
+Q. Perform a right join between 'work' and 'client' tables based on 'client_ID'.
+Q. Create a self-join on the 'emp' table to find employees in the same branch.
+Q. Execute a cross join between 'emp' and 'client' tables.
+Q. Perform a full outer join between 'emp' and 'work' tables.
+
+-----------------------------------------------------------------------------------------------
+
+Subqueries:
+Use a subquery to find employees with a salary greater than the average salary.
+Implement a correlated subquery to retrieve clients with a profit higher than the average profit.
+Subquery to filter employees based on the branch with the highest average salary.
+Join the 'emp' table with a subquery that finds clients associated with each employee.
+
+-----------------------------------------------------------------------------------------------
+
+Views:
+Q. Create a view named 'employee_view' that displays emp_ID, name, and salary from the 'emp' table.
+Q. Modify the 'employee_view' to include the branch name.
+Q. Drop the 'employee_view'.
+
+-----------------------------------------------------------------------------------------------
+
+mysql> INSERT INTO emp (emp_ID, name, dob, gender, salary, branch_ID) VALUES
+    -> (9, 'Sakura', '2004-05-30', 'F', 60000, 'I1');
+
+mysql> UPDATE emp
+    -> SET salary = 48000
+    -> WHERE emp_ID = 5;

@@ -1,0 +1,17 @@
+# pip install --upgrade pip
+# pip install -r requirements.txt
+ipykernel==6.29.5
+numpy==2.1.2
+pandas==2.2.3
+matplotlib==3.9.2
+lxml==5.3.1
+html5lib==1.1
+beautifulsoup4==4.13.3
+openpyxl==3.1.5
+seaborn==0.13.2
+requests==2.32.3
+Flask==3.1.0
+streamlit==1.43.2
+scikit-learn==1.6.1
+imblearn==0.0
+statsmodels==0.14.4

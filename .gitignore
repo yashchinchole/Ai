@@ -9,6 +9,9 @@ wheels/
 # Virtual environments
 .venv
 
+# VSCode settings
+.vscode/
+
 # Rough files
 r
 TODO

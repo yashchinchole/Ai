@@ -1,0 +1,8 @@
+2025-03-15 18:24:48-root-DEBUG-This is a debug message
+2025-03-15 18:24:48-root-INFO-This is an info message
+2025-03-15 18:24:48-root-WARNING-This is a warning message
+2025-03-15 18:24:48-root-ERROR-This is an error message
+2025-03-15 18:24:48-root-CRITICAL-This is a critical message
+2025-03-15 18:24:48-module1-DEBUG-This is debug message for module1
+2025-03-15 18:24:48-module2-WARNING-This is a warning message for module 2
+2025-03-15 18:24:48-module2-ERROR-This is an error message
