@@ -7,11 +7,14 @@ wheels/
 *.egg-info
 
 # Virtual environments
-.venv
+.venv/
+
+# Environment variables
+.env
 
 # VSCode settings
 .vscode/
 
-# Rough files
-r
+# Rough or temporary files
+r/
 TODO
