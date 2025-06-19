@@ -21,6 +21,7 @@ sqlalchemy
 plotly
 nbformat
 pypdf
+pypdf2
 arxiv
 pymupdf
 wikipedia
