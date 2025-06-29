@@ -1,4 +1,7 @@
 ipykernel
+ipywidgets
+jupyterlab
+widgetsnbextension
 numpy
 pandas
 matplotlib
