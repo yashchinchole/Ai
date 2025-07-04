@@ -15,5 +15,8 @@ wheels/
 # VSCode settings
 .vscode/
 
+# LangGraph studio
+.langgraph_api/
+
 # TODO
 TODO
