@@ -47,6 +47,8 @@ langchain_ollama
 langchain_huggingface
 langchain_chroma
 langchain-tavily
+mcp
+langchain-mcp-adapters
 chromadb
 faiss-cpu
 sentence-transformers
