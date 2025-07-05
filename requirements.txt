@@ -31,6 +31,7 @@ pymupdf
 wikipedia
 python-dotenv
 openai
+anthropic
 pydantic
 langchain
 langserve
