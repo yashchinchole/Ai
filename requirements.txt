@@ -65,3 +65,4 @@ faiss-cpu
 sentence-transformers
 duckdb
 duckduckgo-search
+gitingest
